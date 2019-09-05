@@ -26,7 +26,7 @@ class LEEMDetector(Device):
                 self.acquire.clear_sub(check_if_done)
 
         self.acquire.subscribe(check_if_done, run=False)
-        self.acquire.set(1)
+        self.acquire.put(1)
         return status
 
 
