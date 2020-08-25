@@ -3,6 +3,12 @@ import nslsii
 
 nslsii.configure_base(get_ipython().user_ns, 'xpeem')
 
+# Temporary fix before it's fixed in ophyd
+import logging
+logger = logging.getLogger('ophyd')
+logger.setLevel('WARNING')
+
+
 from pathlib import Path
 
 import appdirs
