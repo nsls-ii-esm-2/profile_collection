@@ -155,7 +155,7 @@ def channel_list_unpack(DETS_str, dot=False):
                     Value_list=Channel_str.partition('-')[2].split('-')
 
                     if len(Value_list[0]) == 0:
-                        #if no valuess are defined for this detector.
+                        #if no values are defined for this detector.
                         name_list.append(format_channel_name(DET,Channel,dot = dot))
                     else:
                         #if there are values listed for this channel.
@@ -662,12 +662,12 @@ def fug_fil_degas(I_target, pressure_pv, max_pressure, max_voltage, current=fug_
     voltage.put(max_voltage)
     current.put(0)
     enable.put(1)
-    while(I_target > current.value):
+    while I_target > current.get():
         incr = .1
-        print("Current value: " + str(round(current.value,2)) + ". Going to " + str(round(current.value+incr,2))) 
-        while(pressure_pv.value >= max_pressure):
+        print("Current value: " + str(round(current.get(), 2)) + ". Going to " + str(round(current.get() + incr, 2)))
+        while(pressure_pv.get() >= max_pressure):
             time.sleep(10)
-        current.put(current.value + incr)
+        current.put(current.get() + incr)
         time.sleep(10)
     current.put(0)
     voltage.put(0)

@@ -430,7 +430,7 @@ class ESM_motion_device:
             key_dict = det_status_dict[key]
             for det in key_dict:
                 obj,_,attr = det.partition('_')
-                f_string+='\t '+det.ljust(25)+' -->  %f\n' % getattr(ip.user_ns[obj],attr).value
+                f_string+='\t '+det.ljust(25)+' -->  %f\n' % getattr(ip.user_ns[obj],attr).get()
             f_string+='\n'           
             
         # step through the motors and read the values
