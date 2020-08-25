@@ -1065,10 +1065,10 @@ def M3_pitch_alignment(Branch="A",adaptive=False):
     initial_FE_hgap_pos = FE_hgap_axis.position
     initial_FE_vgap_pos = FE_vgap_axis.position
 
-    initial_det_range = detector.em_range.value                # The initial detector range
-    initial_det_vals_reading = detector.values_per_read.value  # The initial values per reading.
-    initial_det_avg_time = detector.averaging_time.value       # The initial averaging time.
-    initial_det_int_time = detector.integration_time.value     # The initial integration time.
+    initial_det_range = detector.em_range.get()                # The initial detector range
+    initial_det_vals_reading = detector.values_per_read.get()  # The initial values per reading.
+    initial_det_avg_time = detector.averaging_time.get()       # The initial averaging time.
+    initial_det_int_time = detector.integration_time.get()     # The initial integration time.
 
     initial_Exit_Slit_hgap_pos = Exit_Slit_hgap_motor.position # The initial horizontal gap opening
     initial_Exit_Slit_vgap_pos = Exit_Slit_vgap_motor.position # The initial vertical gap opening
@@ -1254,25 +1254,25 @@ def FE_slits_alignment(detector_location="Diagon",mv_center=False,return_all=Fal
 
     if detector_location is 'Diagon':
 
-        initial_det_exp_time = detector.cam.acquire_time.value
-        initial_det_aqu_period = detector.cam.acquire_period.value
-        initial_det_num_images = detector.cam.num_images.value
-        initial_det_exp_image = detector.cam.num_exposures.value
+        initial_det_exp_time = detector.cam.acquire_time.get()
+        initial_det_aqu_period = detector.cam.acquire_period.get()
+        initial_det_num_images = detector.cam.num_images.get()
+        initial_det_exp_image = detector.cam.num_exposures.get()
 
-        initial_det_ROI_Xstart = detector.roi1.min_xyz.min_x.value
-        initial_det_ROI_Xsize = detector.roi1.size.x.value
-        initial_det_ROI_Ystart = detector.roi1.min_xyz.min_y.value
-        initial_det_ROI_Ysize = detector.roi1.size.y.value
+        initial_det_ROI_Xstart = detector.roi1.min_xyz.min_x.get()
+        initial_det_ROI_Xsize = detector.roi1.size.x.get()
+        initial_det_ROI_Ystart = detector.roi1.min_xyz.min_y.get()
+        initial_det_ROI_Ysize = detector.roi1.size.y.get()
 
         initial_det_Mir_pos = det_Mir_motor.position
         initial_det_Yag_pos = det_Yag_motor.position
 
     elif 'Gas_cell' in detector_location:
 
-        initial_det_range = detector.em_range.value                # The initial detector range
-        initial_det_vals_reading = detector.values_per_read.value  # The initial values per reading.
-        initial_det_avg_time = detector.averaging_time.value       # The initial averaging time.
-        initial_det_int_time = detector.integration_time.value     # The initial integration time.
+        initial_det_range = detector.em_range.get()                # The initial detector range
+        initial_det_vals_reading = detector.values_per_read.get()  # The initial values per reading.
+        initial_det_avg_time = detector.averaging_time.get()       # The initial averaging time.
+        initial_det_int_time = detector.integration_time.get()     # The initial integration time.
 
         initial_Exit_Slit_hgap_pos = Exit_Slit_hgap_motor.position # The initial horizontal gap opening
         initial_Exit_Slit_vgap_pos = Exit_Slit_vgap_motor.position # The initial vertical gap opening
@@ -1579,10 +1579,10 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
     #Save the initial values of all moved motors so that they can be reset.
     initial_Und_gap = Und.position                             # The initial Undulator position.
     initial_PGM_Energy_pos = PGM_Energy_motor.position         # The initial PGM energy.
-    initial_det_range = detector.em_range.value                # The initial detector range.
-    initial_det_vals_reading = detector.values_per_read.value  # The initial values per reading.
-    initial_det_avg_time = detector.averaging_time.value       # The initial averaging time.
-    initial_det_int_time = detector.integration_time.value     # The initial integration time.
+    initial_det_range = detector.em_range.get()                # The initial detector range.
+    initial_det_vals_reading = detector.values_per_read.get()  # The initial values per reading.
+    initial_det_avg_time = detector.averaging_time.get()       # The initial averaging time.
+    initial_det_int_time = detector.integration_time.get()     # The initial integration time.
     initial_x_axis_pos = x_axis.position                       # The initial x_axis position.
     initial_y_axis_pos = y_axis.position                       # The initial y_axis position.
     initial_Exit_Slit_vgap_pos = Exit_Slit_vgap_motor.position # The initial vertical gap for the exit slit.

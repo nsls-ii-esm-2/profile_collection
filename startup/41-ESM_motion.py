@@ -430,7 +430,7 @@ class ESM_motion_device:
             key_dict = det_status_dict[key]
             for det in key_dict:
                 obj,_,attr = det.partition('_')
-                f_string+='\t '+det.ljust(25)+' -->  %f\n' % getattr(ip.user_ns[obj],attr).value
+                f_string+='\t '+det.ljust(25)+' -->  %f\n' % getattr(ip.user_ns[obj],attr).get()
             f_string+='\n'           
             
         # step through the motors and read the values
@@ -629,14 +629,10 @@ class ESM_motion_device:
 
 #The low temperature manipulator
 
-LT_manip=ESM_motion_device(os.environ['HOME']+
-    '/.ipython/profile_collection/startup/motion_definition_files/LT_manip_definition.csv',
-    'LOW TEMPERATURE MANIPULATOR')    
+# LT_manip=ESM_motion_device(os.environ['HOME']+
+#     '/.ipython/profile_collection/startup/motion_definition_files/LT_manip_definition.csv',
+#     'LOW TEMPERATURE MANIPULATOR')
 
 #The beamline as a whole (swap branches, etc).
-Beamline=ESM_motion_device(os.environ['HOME']+
-    '/.ipython/profile_collection/startup/motion_definition_files/Beamline_definition.csv',
-    'BEAMLINE')  
-
-
-
+Beamline=ESM_motion_device(os.path.join(get_ipython().profile_dir.startup_dir, 'motion_definition_files/Beamline_definition.csv'),
+                           'BEAMLINE')

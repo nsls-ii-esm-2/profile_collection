@@ -95,11 +95,11 @@ class Source(Device):
             '''
             #Define the list of EPICS signal status values.
             det_status_dict={}
-            det_status_dict[self.name]={self.name+'_Current':self.Current.value,
-                                        self.name+'_Xoffset':self.Xoffset.value,
-                                        self.name+'_Xangle':self.Xangle.value,
-                                        self.name+'_Yoffset':self.Yoffset.value,
-                                        self.name+'_Yangle':self.Yangle.value}
+            det_status_dict[self.name]={self.name+'_Current':self.Current.get(),
+                                        self.name+'_Xoffset':self.Xoffset.get(),
+                                        self.name+'_Xangle':self.Xangle.get(),
+                                        self.name+'_Yoffset':self.Yoffset.get(),
+                                        self.name+'_Yangle':self.Yangle.get()}
 
             #Define the list of EPICS motor status values.
             status_dict={}
@@ -126,7 +126,7 @@ class Source(Device):
                 key_dict = det_status_dict[key]
                 for det in key_dict:
                     obj,_,attr = det.partition('_')
-                    f_string+='\t '+det+' -->  %f\n' % getattr(ip.user_ns[obj],attr).value
+                    f_string+='\t '+det+' -->  %f\n' % getattr(ip.user_ns[obj],attr).get()
                 f_string+='\n'
 
             # step through the motors and read the values
