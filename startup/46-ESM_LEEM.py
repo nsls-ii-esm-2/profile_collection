@@ -18,23 +18,19 @@ class LEEMDetector(Device):
 #        self.st = None
 
     def trigger(self):
-        init = 0
         status = DeviceStatus(self)
         # Write to server.
         def check_if_done(old_value, value, **kwargs):
-            if init == 1:
-                if value == 0 and old_value == 1:
-                    status._finished()
-                    self.acquire.clear_sub(check_if_done)
+            if value == 0 and old_value == 1:
+                status._finished()
+                self.acquire.clear_sub(check_if_done)
 
-        self.acquire.subscribe(check_if_done)
-        self.acquire.set(1)
-        init = 1
+        self.acquire.subscribe(check_if_done, run=False)
+        self.acquire.put(1)
         return status
 
 
 leem_det = LEEMDetector('XF:21ID2{LEEM}:', name='leem_det')
-#leem_det.trigger()
 
 
 def LEEM_plan(grating='600', EPU='105', E_start=100, E_stop=150, E_step=0.1, branch='B'):
