@@ -431,7 +431,7 @@ def scan_multi_1D(DETS_str, scan_motor1, start1, end1, step_size1,scan_motor2, s
        else:
           uid= yield from inner_forward()
 
-       if initial_uid is 'current uid':
+       if initial_uid == 'current uid':
            initial_uid = uid
 
     #change the "hints" on the detectors back to the default
@@ -1008,7 +1008,7 @@ def M3_pitch_alignment(Branch="A",adaptive=False):
 
     scan_type_str='M3_pitch_alignment_'+Branch
 
-    if Branch is "A":
+    if Branch == "A":
         x_start = -0.718              # The x_axis start value of the scan
         x_end   = -0.705              # The x_axis end value of the scan
         stepsize_min = 0.0001        # The minimum x_axis step size of the scan
@@ -1034,7 +1034,7 @@ def M3_pitch_alignment(Branch="A",adaptive=False):
 
 
 
-    elif Branch is "B":
+    elif Branch == "B":
         x_start = -0.75              # The x_axis start value of the scan
         x_end   = -0.725             # The x_axis end value of the scan
         stepsize_min = 0.0001        # The minimum x_axis step size of the scan
@@ -1174,7 +1174,7 @@ def FE_slits_alignment(detector_location="Diagon",mv_center=False,return_all=Fal
                             #than this it sends out a warning and does not update
 
 
-    if detector_location is 'Diagon':
+    if detector_location == 'Diagon':
         detector = Diag1_CamH # The detector to use for the scan.
         det_exp_time = 0.5    # The exposure time to use for the scan.
         det_aqu_period = 0.5  # The aquire period for the detector.
@@ -1197,7 +1197,7 @@ def FE_slits_alignment(detector_location="Diagon",mv_center=False,return_all=Fal
 
         scan_type_str='FE_slit_alignment_Diagon'
 
-    elif detector_location is 'Gas_cellA':
+    elif detector_location == 'Gas_cellA':
         detector = qem07      # The detector to use for the scan.
         det_range = '50 pC'     # The range to use for the scan
         det_vals_reading = 5  # The values per reading to use.
@@ -1219,7 +1219,7 @@ def FE_slits_alignment(detector_location="Diagon",mv_center=False,return_all=Fal
         scan_type_str='FE_slit_alignment_Gas_cellA'
 
 
-    elif detector_location is 'Gas_cellB':
+    elif detector_location == 'Gas_cellB':
         detector = qem12      # The detector to use for the scan.
         det_range = '50 pC'     # The range to use for the scan
         det_vals_reading = 5  # The values per reading to use.
@@ -1252,7 +1252,7 @@ def FE_slits_alignment(detector_location="Diagon",mv_center=False,return_all=Fal
     initial_FE_hgap_pos = FE_hgap_axis.position
     initial_FE_vgap_pos = FE_vgap_axis.position
 
-    if detector_location is 'Diagon':
+    if detector_location == 'Diagon':
 
         initial_det_exp_time = detector.cam.acquire_time.get()
         initial_det_aqu_period = detector.cam.acquire_period.get()
@@ -1290,7 +1290,7 @@ def FE_slits_alignment(detector_location="Diagon",mv_center=False,return_all=Fal
     yield from mv( Und,Und_gap,  x_axis,x_start,  y_axis, y_start,
                   FE_hgap_axis,FE_hgap_pos,  FE_vgap_axis,FE_vgap_pos)
 
-    if detector_location is 'Diagon':
+    if detector_location == 'Diagon':
         yield from mv (det_Mir_motor,det_Mir_pos,  det_Yag_motor,det_Yag_pos)
 
         detector.cam.acquire_time.put(det_exp_time)
