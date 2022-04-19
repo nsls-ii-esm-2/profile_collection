@@ -1349,7 +1349,7 @@ def FE_slits_alignment(detector_location="Diagon",mv_center=False,return_all=Fal
 
         yield from mv( Und,initial_Und_gap,  x_axis,initial_x_axis,  y_axis, initial_y_axis)
 
-        if detector_location is 'Diagon':
+        if detector_location == 'Diagon':
             yield from mv(det_Mir_motor,initial_det_Mir_pos,  det_Yag_motor,initial_det_Yag_pos)
 
             detector.cam.acquire_time.put(initial_det_exp_time)
@@ -1441,7 +1441,7 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
     accuracy_level = 0.1    #Used to compare the old and new "center" positions, if the difference is larger
                             #than this it sends out a warning and does not update
 
-    if Branch is "A":
+    if Branch == "A":
         Exit_Slit_hgap_motor = ExitSlitA.h_gap # The motor required to move the horizontal exit slit
         Exit_Slit_hgap_pos = 0                  # The horizontal gap opening to use
         Exit_Slit_vgap_motor = ExitSlitA.v_gap # The motor required to move the vertical exit slit
@@ -1453,7 +1453,7 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
         detector = qem07      # The detector to use for the scan.
 
 
-    elif Branch is "B":
+    elif Branch == "B":
         Exit_Slit_hgap_motor = ExitSlitB.h_gap # The motor required to move the horizontal exit slit
         Exit_Slit_hgap_pos = 10                 # The horizontal gap opening to use
         Exit_Slit_vgap_motor = ExitSlitB.v_gap # The motor required to move the vertical exit slit
@@ -1468,8 +1468,8 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
         return None
 
 
-    if axes is "M1_Ry_M3_Ry":
-        if Branch is "A":
+    if axes == "M1_Ry_M3_Ry":
+        if Branch == "A":
             x_axis = M3.Ry                 # The x axis of the scan
             x_start = -0.7085              # The x_axis start value of the scan
             x_end   = -0.7035              # The x_axis end value of the scan
@@ -1480,7 +1480,7 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
             y_end   = -3620              # The y_axis end value of the scan
             y_stepsize =  2              # The y_axis step size of the scan
 
-        elif Branch is "B":
+        elif Branch == "B":
             x_axis = M3.Ry                # The x axis of the scan
             x_start = -0.719              # The x_axis start value of the scan
             x_end   = -0.714              # The x_axis end value of the scan
@@ -1495,8 +1495,8 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
         scan_type_str='Mirror_alignment_M1_RY_M3_RY_Branch_'+Branch
 
 
-    elif axes is "M3_X_M3_Ry":
-        if Branch is "A":
+    elif axes == "M3_X_M3_Ry":
+        if Branch == "A":
             x_axis = M3.Ry # The x axis of the scan
             x_start = -0.71              # The x_axis start value of the scan
             x_end   = -0.695              # The x_axis end value of the scan
@@ -1507,7 +1507,7 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
             y_end   = 1.5               # The y_axis end value of the scan
             y_stepsize = 0.1            # The y_axis step size of the scan
 
-        elif Branch is "B":
+        elif Branch == "B":
             x_axis = M3.Ry # The x axis of the scan
             x_start = -0.726               # The x_axis start value of the scan
             x_end   = -0.71                # The x_axis end value of the scan
@@ -1520,8 +1520,8 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
 
         scan_type_str='Mirror_alignment_M3_X_M3_RY_Branch_'+Branch
 
-    elif axes is "M3_Z_M3_Ry":
-        if Branch is "A":
+    elif axes == "M3_Z_M3_Ry":
+        if Branch == "A":
             x_axis = M3.Ry # The x axis of the scan
             x_start = -0.7085              # The x_axis start value of the scan
             x_end   = -0.7035             # The x_axis end value of the scan
@@ -1532,7 +1532,7 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
             y_end   = 2.5               # The y_axis end value of the scan
             y_stepsize = 0.25            # The y_axis step size of the scan
 
-        elif Branch is "B":
+        elif Branch == "B":
             x_axis = M3.Ry # The x axis of the scan
             x_start = -0.7085              # The x_axis start value of the scan
             x_end   = -0.7035             # The x_axis end value of the scan
@@ -1546,8 +1546,8 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
         scan_type_str='Mirror_alignment_M3_Z_M3_RY_Branch_'+Branch
 
 
-    elif axes is "M3_Rz_M3_Ry":
-        if Branch is "A":
+    elif axes == "M3_Rz_M3_Ry":
+        if Branch == "A":
             x_axis = M3.Ry # The x axis of the scan
             x_start = -0.7085              # The x_axis start value of the scan
             x_end   = -0.7035              # The x_axis end value of the scan
@@ -1558,7 +1558,7 @@ def Mirror_alignment(axes='M1_Ry_M3_Ry',Branch='A',mv_optimum=True,return_all=Tr
             y_end   = 0.75               # The y_axis end value of the scan
             y_stepsize = 0.25            # The y_axis step size of the scan
 
-        elif Branch is "B":
+        elif Branch == "B":
             x_axis = M3.Ry # The x axis of the scan
             x_start = -0.735              # The x_axis start value of the scan
             x_end   = -0.70              # The x_axis end value of the scan
