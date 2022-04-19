@@ -18,9 +18,9 @@ This section is used to define a few settings values that are used for all scans
 #This defines which motor devices to measure at the start and end of each scan. The axes that
 #are measured are defined at the initialization of the motor device in the '.hints.' attribute.
 
-#sd.baseline = [BeamSource, EPU105, FEslit, M1, PGM, M3, ExitSlitA, ExitSlitB, M4A, M4B, LT, SP]
-#sd.baseline = [BeamSource,EPU57, EPU105, FEslit, M1, PGM, M3, ExitSlitA, ExitSlitB, M4A, M4B, LT, SP]
-sd.baseline = [BeamSource,EPU57, EPU105, FEslit, M1, PGM, M3, ExitSlitA, ExitSlitB, M4A, M4B, LT]
+#sd.baseline = [BeamSource, EPU105, FEslit, M1, PGM, M3, ExitSlitA, ExitSlitB, M4A, M4B, SP]
+#sd.baseline = [BeamSource,EPU57, EPU105, FEslit, M1, PGM, M3, ExitSlitA, ExitSlitB, M4A, M4B, SP]
+sd.baseline = [BeamSource,EPU57, EPU105, FEslit, M1, PGM, M3, ExitSlitA, ExitSlitB, M4A, M4B]
 
 #This line command defines the list of motor axes that are to be displayed when using the magics
 # command %wa.
@@ -50,7 +50,7 @@ BlueskyMagics.positioners = [EPU57.gap,EPU57.phase,EPU105.gap,EPU105.phase
                              M4BDslit.h_gap, M4BDslit.h_center,M4BDslit.v_gap,M4BDslit.v_center,
                              M4BDslit.h_scan,M4BDslit.h_apperture,M4BDslit.v_scan,M4BDslit.v_apperture,
                              M4BDdiag1.trans,M4BDdiag2.trans,
-                             LT.X,LT.Y,LT.Z,LT.Ry, SP.X,SP.Y,SP.Z,SP.Rx,
+#                             LT.X,LT.Y,LT.Z,LT.Ry, SP.X,SP.Y,SP.Z,SP.Rx,
                              LL.Claw_Trans,LL.Claw_Rotate,LL.Claw_Grab,LL.Dock_Trans]
 
 

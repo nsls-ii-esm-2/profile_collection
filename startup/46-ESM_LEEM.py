@@ -33,7 +33,7 @@ class LEEMDetector(Device):
 leem_det = LEEMDetector('XF:21ID2{LEEM}:', name='leem_det')
 
 
-def LEEM_plan(grating='600', EPU='105', E_start=100, E_stop=150, E_step=0.1, branch='B'):
+def LEEM_plan(grating='600', EPU='105', LP='LH', E_start=100, E_stop=150, E_step=0.1, branch='B'):
     #Change energy and have LEEM take image
 
      # the grating to use in the scans
@@ -45,6 +45,6 @@ def LEEM_plan(grating='600', EPU='105', E_start=100, E_stop=150, E_step=0.1, bra
     #yield from Beamline.move_to('Branch_A')
 
     for energy in energies:
-         yield from Eph.move_to(energy, grating=grating, EPU=EPU, branch=branch)
+         yield from Eph.move_to(energy, grating=grating, EPU=EPU, LP=LP, branch=branch)
          yield from bp.count([leem_det], num=1)
 

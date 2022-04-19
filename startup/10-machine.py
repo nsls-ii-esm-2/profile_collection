@@ -33,13 +33,13 @@ LL = LL_mtr('XF:21IDD-ES{LL:', name='LL')
 # ---------------------------- LOW_TEMP Chamber -----------------------------
 # Low_temp chamber:
 #
-class LT_mtr(Device):
-   X = Comp(EpicsMotor,"-Ax:X}Mtr", kind='hinted')
-   Y = Comp(EpicsMotor,"-Ax:Y}Mtr", kind='hinted')
-   Z = Comp(EpicsMotor,"-Ax:Z}Mtr", kind='hinted')
-   Ry =  Comp(EpicsMotor,"-Ax:Ry}Mtr", kind='hinted')
+#class LT_mtr(Device):
+#   X = Comp(EpicsMotor,"-Ax:X}Mtr", kind='hinted')
+#   Y = Comp(EpicsMotor,"-Ax:Y}Mtr", kind='hinted')
+#   Z = Comp(EpicsMotor,"-Ax:Z}Mtr", kind='hinted')
+#   Ry =  Comp(EpicsMotor,"-Ax:Ry}Mtr", kind='hinted')
 
-LT = LT_mtr('XF:21IDD-ES{LT:1-Manip:EA5_1', name='LT')
+#LT = LT_mtr('XF:21IDD-ES{LT:1-Manip:EA5_1', name='LT')
 
 
 # ---------------------------- SAMPLE_PREP Chamber -----------------------------
