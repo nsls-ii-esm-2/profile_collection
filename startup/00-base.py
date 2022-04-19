@@ -32,7 +32,7 @@ EpicsSignalBase.set_defaults(connection_timeout=8)
 import nslsii
 
 
-nslsii.configure_base(get_ipython().user_ns, 'xpeem')
+nslsii.configure_base(get_ipython().user_ns, 'xpeem', publish_documents_with_kafka=True)
 
 from pathlib import Path
 
